@@ -1,1 +1,137 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[22],{824:function(e,n,o){"use strict";o.r(n),o.d(n,"conf",(function(){return t})),o.d(n,"language",(function(){return s}));var t={comments:{lineComment:"//",blockComment:["/*","*/"]},brackets:[["{","}"],["[","]"],["(",")"]],autoClosingPairs:[{open:"{",close:"}"},{open:"[",close:"]"},{open:"(",close:")"},{open:"`",close:"`",notIn:["string"]},{open:'"',close:'"',notIn:["string"]},{open:"'",close:"'",notIn:["string","comment"]}],surroundingPairs:[{open:"{",close:"}"},{open:"[",close:"]"},{open:"(",close:")"},{open:"`",close:"`"},{open:'"',close:'"'},{open:"'",close:"'"}]},s={defaultToken:"",tokenPostfix:".go",keywords:["break","case","chan","const","continue","default","defer","else","fallthrough","for","func","go","goto","if","import","interface","map","package","range","return","select","struct","switch","type","var","bool","true","false","uint8","uint16","uint32","uint64","int8","int16","int32","int64","float32","float64","complex64","complex128","byte","rune","uint","int","uintptr","string","nil"],operators:["+","-","*","/","%","&","|","^","<<",">>","&^","+=","-=","*=","/=","%=","&=","|=","^=","<<=",">>=","&^=","&&","||","<-","++","--","==","<",">","=","!","!=","<=",">=",":=","...","(",")","","]","{","}",",",";",".",":"],symbols:/[=><!~?:&|+\-*\/\^%]+/,escapes:/\\(?:[abfnrtv\\"']|x[0-9A-Fa-f]{1,4}|u[0-9A-Fa-f]{4}|U[0-9A-Fa-f]{8})/,tokenizer:{root:[[/[a-zA-Z_]\w*/,{cases:{"@keywords":{token:"keyword.$0"},"@default":"identifier"}}],{include:"@whitespace"},[/\[\[.*\]\]/,"annotation"],[/^\s*#\w+/,"keyword"],[/[{}()\[\]]/,"@brackets"],[/[<>](?!@symbols)/,"@brackets"],[/@symbols/,{cases:{"@operators":"delimiter","@default":""}}],[/\d*\d+[eE]([\-+]?\d+)?/,"number.float"],[/\d*\.\d+([eE][\-+]?\d+)?/,"number.float"],[/0[xX][0-9a-fA-F']*[0-9a-fA-F]/,"number.hex"],[/0[0-7']*[0-7]/,"number.octal"],[/0[bB][0-1']*[0-1]/,"number.binary"],[/\d[\d']*/,"number"],[/\d/,"number"],[/[;,.]/,"delimiter"],[/"([^"\\]|\\.)*$/,"string.invalid"],[/"/,"string","@string"],[/`/,"string","@rawstring"],[/'[^\\']'/,"string"],[/(')(@escapes)(')/,["string","string.escape","string"]],[/'/,"string.invalid"]],whitespace:[[/[ \t\r\n]+/,""],[/\/\*\*(?!\/)/,"comment.doc","@doccomment"],[/\/\*/,"comment","@comment"],[/\/\/.*$/,"comment"]],comment:[[/[^\/*]+/,"comment"],[/\*\//,"comment","@pop"],[/[\/*]/,"comment"]],doccomment:[[/[^\/*]+/,"comment.doc"],[/\/\*/,"comment.doc.invalid"],[/\*\//,"comment.doc","@pop"],[/[\/*]/,"comment.doc"]],string:[[/[^\\"]+/,"string"],[/@escapes/,"string.escape"],[/\\./,"string.escape.invalid"],[/"/,"string","@pop"]],rawstring:[[/[^\`]/,"string"],[/`/,"string","@pop"]]}}}}]);
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[22],{
+
+/***/ "./node_modules/monaco-editor/esm/vs/basic-languages/graphql/graphql.js":
+/*!******************************************************************************!*\
+  !*** ./node_modules/monaco-editor/esm/vs/basic-languages/graphql/graphql.js ***!
+  \******************************************************************************/
+/*! exports provided: conf, language */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "conf", function() { return conf; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "language", function() { return language; });
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+var conf = {
+    comments: {
+        lineComment: '#'
+    },
+    brackets: [
+        ['{', '}'],
+        ['[', ']'],
+        ['(', ')']
+    ],
+    autoClosingPairs: [
+        { open: '{', close: '}' },
+        { open: '[', close: ']' },
+        { open: '(', close: ')' },
+        { open: '"""', close: '"""', notIn: ['string', 'comment'] },
+        { open: '"', close: '"', notIn: ['string', 'comment'] },
+    ],
+    surroundingPairs: [
+        { open: '{', close: '}' },
+        { open: '[', close: ']' },
+        { open: '(', close: ')' },
+        { open: '"""', close: '"""' },
+        { open: '"', close: '"' },
+    ],
+    folding: {
+        offSide: true
+    }
+};
+var language = {
+    // Set defaultToken to invalid to see what you do not tokenize yet
+    defaultToken: 'invalid',
+    tokenPostfix: '.gql',
+    keywords: [
+        'null', 'true', 'false',
+        'query', 'mutation', 'subscription',
+        'extend', 'schema', 'directive',
+        'scalar', 'type', 'interface', 'union', 'enum', 'input', 'implements',
+        'fragment', 'on',
+    ],
+    typeKeywords: ['Int', 'Float', 'String', 'Boolean', 'ID'],
+    directiveLocations: [
+        'SCHEMA', 'SCALAR', 'OBJECT', 'FIELD_DEFINITION', 'ARGUMENT_DEFINITION',
+        'INTERFACE', 'UNION', 'ENUM', 'ENUM_VALUE', 'INPUT_OBJECT', 'INPUT_FIELD_DEFINITION',
+        'QUERY', 'MUTATION', 'SUBSCRIPTION', 'FIELD', 'FRAGMENT_DEFINITION',
+        'FRAGMENT_SPREAD', 'INLINE_FRAGMENT', 'VARIABLE_DEFINITION',
+    ],
+    operators: ['=', '!', '?', ':', '&', '|'],
+    // we include these common regular expressions
+    symbols: /[=!?:&|]+/,
+    // https://facebook.github.io/graphql/draft/#sec-String-Value
+    escapes: /\\(?:["\\\/bfnrt]|u[0-9A-Fa-f]{4})/,
+    // The main tokenizer for our languages
+    tokenizer: {
+        root: [
+            // identifiers and keywords
+            [
+                /[a-z_$][\w$]*/,
+                {
+                    cases: {
+                        '@keywords': 'keyword',
+                        '@default': 'identifier',
+                    },
+                },
+            ],
+            [
+                /[A-Z][\w\$]*/,
+                {
+                    cases: {
+                        '@typeKeywords': 'keyword',
+                        '@default': 'type.identifier',
+                    },
+                },
+            ],
+            // whitespace
+            { include: '@whitespace' },
+            // delimiters and operators
+            [/[{}()\[\]]/, '@brackets'],
+            [
+                /@symbols/,
+                { cases: { '@operators': 'operator', '@default': '' } },
+            ],
+            // @ annotations.
+            // As an example, we emit a debugging log message on these tokens.
+            // Note: message are supressed during the first load -- change some lines to see them.
+            [
+                /@\s*[a-zA-Z_\$][\w\$]*/,
+                { token: 'annotation', log: 'annotation token: $0' },
+            ],
+            // numbers
+            [/\d*\.\d+([eE][\-+]?\d+)?/, 'number.float'],
+            [/0[xX][0-9a-fA-F]+/, 'number.hex'],
+            [/\d+/, 'number'],
+            // delimiter: after number because of .\d floats
+            [/[;,.]/, 'delimiter'],
+            [/"""/,
+                { token: 'string', next: '@mlstring', nextEmbedded: 'markdown' }
+            ],
+            // strings
+            [/"([^"\\]|\\.)*$/, 'string.invalid'],
+            [/"/, { token: 'string.quote', bracket: '@open', next: '@string' }],
+        ],
+        mlstring: [
+            [/[^"]+/, 'string'],
+            ['"""', { token: 'string', next: '@pop', nextEmbedded: '@pop' }]
+        ],
+        string: [
+            [/[^\\"]+/, 'string'],
+            [/@escapes/, 'string.escape'],
+            [/\\./, 'string.escape.invalid'],
+            [/"/, { token: 'string.quote', bracket: '@close', next: '@pop' }],
+        ],
+        whitespace: [[/[ \t\r\n]+/, ''], [/#.*$/, 'comment']],
+    },
+};
+
+
+/***/ })
+
+}]);
+//# sourceMappingURL=22.bundle.js.map
