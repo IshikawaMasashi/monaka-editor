@@ -1,4 +1,4 @@
-﻿var CACHE_NAME = "monaka-editor-cache-v22";
+﻿var CACHE_NAME = "monaka-editor-cache-v23";
 var urlsToCache = [
   "https://ishikawamasashi.github.io/monaka-editor/",
   "https://ishikawamasashi.github.io/monaka-editor/index.html",
@@ -71,6 +71,8 @@ var urlsToCache = [
   "https://ishikawamasashi.github.io/monaka-editor/dist/64.bundle.js",
   "https://ishikawamasashi.github.io/monaka-editor/dist/65.bundle.js",
   "https://ishikawamasashi.github.io/monaka-editor/dist/66.bundle.js",
+  "https://ishikawamasashi.github.io/monaka-editor/dist/68.bundle.js",
+  "https://ishikawamasashi.github.io/monaka-editor/dist/67.bundle.js",
 
   "https://ishikawamasashi.github.io/monaka-editor/dist/html.worker.js",
   "https://ishikawamasashi.github.io/monaka-editor/dist/main.bundle.js",
